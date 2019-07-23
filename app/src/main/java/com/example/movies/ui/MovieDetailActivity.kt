@@ -43,20 +43,23 @@ class MovieDetailActivity : AppCompatActivity() {
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setDisplayShowHomeEnabled(true)
 
-
         setupView()
         setupFavoriteButton()
     }
 
     private fun setupView() {
+
         GlideApp.with(this)
             .load("https://image.tmdb.org/t/p/w342/${movie.posterPath}")
+            .placeholder(R.drawable.ic_image_place_holder)
+            .error(R.drawable.ic_broken_image)
+            .fallback(R.drawable.ic_no_image)
             .into(movieDetailImage)
 
         movieDetailTitle.text = movie.title
-        movieReleaseDate.text = movie.releaseDate
-
-        movieIsAdult.text = if(movie.isAdult) String.format("+18") else String.format("")
+        movieVote.text = movie.vote.toString()
+        movieReleaseDate.text = String.format("Release Date : ${movie.releaseDate}")
+        movieIsAdult.text = if(movie.isAdult) String.format("+18") else String.format("General Viewers")
         movieOverview.text = movie.overview
         detailProgressBar.visibility = View.GONE
     }
@@ -88,7 +91,13 @@ class MovieDetailActivity : AppCompatActivity() {
         }
     }
 
-
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if(item.itemId == android.R.id.home){
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
 

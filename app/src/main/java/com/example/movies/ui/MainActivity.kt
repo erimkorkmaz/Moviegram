@@ -4,13 +4,11 @@ package com.example.movies.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.movies.R
 import com.example.movies.model.DatabaseService
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_movies.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -46,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         database = DatabaseService(this)
+
+        setSupportActionBar(movieToolbar)
 
         navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 

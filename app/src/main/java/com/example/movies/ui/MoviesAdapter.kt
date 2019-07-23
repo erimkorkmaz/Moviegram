@@ -41,9 +41,13 @@ class MoviesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Adapt
         fun bind(movie: Movie) {
             this.movie = movie
             itemView.movieTitle.text =movie.title
-
+            
+            val url = if(movie.posterPath != null) "https://image.tmdb.org/t/p/w342/${movie.posterPath}" else null
             GlideApp.with(itemView.context)
-                .load("https://image.tmdb.org/t/p/w342/${movie.posterPath}")
+                .load(url)
+                .placeholder(R.drawable.ic_image_place_holder)
+                .error(R.drawable.ic_broken_image)
+                .fallback(R.drawable.ic_no_image)
                 .into(itemView.moviesImage)
         }
 

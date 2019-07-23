@@ -10,7 +10,7 @@
 
 
         <androidx.appcompat.widget.Toolbar
-                android:id="@+id/nowPlayingToolbar"
+                android:id="@+id/movieToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
@@ -19,15 +19,7 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:contentInsetStartWithNavigation="0dp"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"
-                >
-                <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/toolbarTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="Now Playing"
-                        android:textColor="@android:color/white"/>
-        </androidx.appcompat.widget.Toolbar>
+                app:popupTheme="@style/ThemeOverlay.AppCompat.ActionBar"/>
 
         <FrameLayout
                 android:id="@+id/main_container"
@@ -35,7 +27,7 @@
                 android:layout_height="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nowPlayingToolbar"
+                app:layout_constraintTop_toBottomOf="@+id/movieToolbar"
                 app:layout_constraintBottom_toTopOf="@+id/navigation"
         />
         <com.google.android.material.bottomnavigation.BottomNavigationView

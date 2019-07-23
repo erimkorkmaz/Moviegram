@@ -14,8 +14,9 @@ data class Movie(
     @PrimaryKey val id : Int,
     @ColumnInfo val title : String,
     @ColumnInfo @SerializedName("adult")val isAdult : Boolean,
-    @ColumnInfo @SerializedName("poster_path")val posterPath: String,
+    @ColumnInfo @SerializedName("poster_path")val posterPath: String?,
     @ColumnInfo @SerializedName("release_date") val releaseDate: String,
-    @ColumnInfo val overview : String
+    @ColumnInfo val overview : String,
+    @ColumnInfo @SerializedName("vote_average") val vote : Double
     ) : Parcelable {
 }

@@ -19,9 +19,8 @@
 
     <TextView
             android:id="@+id/movieTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/padding_half"
             android:layout_marginTop="20dp"
             android:textColor="@android:color/black"
             android:textSize="@dimen/movie_name_text_size"
@@ -29,7 +28,8 @@
             app:layout_constraintStart_toEndOf="@+id/moviesImage"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Film Name" />
+            tools:text="Film Name" android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="8dp"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
