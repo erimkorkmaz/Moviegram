@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="content_descrtiption_movie_image">Movie Image</string>
+    <string name="title_now_playing">Now Playing</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="content_description_movie_poster">Movie Poster</string>
+    <string name="content_description_favorite_button">Create Favorite Button</string>
+</resources>

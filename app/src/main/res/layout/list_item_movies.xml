@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="@dimen/list_item_movie_height"
+                                                   android:layout_marginTop="@dimen/padding_half"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools">
+    
+    <ImageView
+            android:id="@+id/moviesImage"
+            android:layout_width="@dimen/list_item_movie_height"
+            android:layout_height="@dimen/list_item_movie_height"
+            android:layout_marginLeft="@dimen/padding_half"
+            android:contentDescription="@string/content_descrtiption_movie_image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_launcher_foreground"/>
+
+    <TextView
+            android:id="@+id/movieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/padding_half"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/movie_name_text_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/moviesImage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Film Name" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
