@@ -12,7 +12,6 @@ import com.example.movies.R
 import com.example.movies.model.Movie
 import com.example.movies.ui.MainActivity.Companion.database
 import kotlinx.android.synthetic.main.activity_movie_detail.*
-import kotlinx.android.synthetic.main.fragment_movies.*
 
 class MovieDetailActivity : AppCompatActivity() {
 
@@ -78,7 +77,7 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
     private fun setupFavoriteButtonClickListener(movie: Movie) {
-        favoriteButton.setOnClickListener { _ ->
+        favoriteButton.setOnClickListener {
             if (database.checkIfMovieAvailable(movie.id)) {
                 favoriteButton.setImageDrawable(getDrawable(R.drawable.ic_star_border_black_24dp))
                 database.deleteFavouriteMovie(movie.id)

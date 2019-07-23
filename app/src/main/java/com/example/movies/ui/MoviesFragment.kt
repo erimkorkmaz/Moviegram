@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.movies.R
 import com.example.movies.ViewModel.MoviesViewModel
 import kotlinx.android.synthetic.main.fragment_movies.*
@@ -17,7 +19,7 @@ class MoviesFragment : Fragment() {
 
     private lateinit var moviesViewModel : MoviesViewModel
 
-    private lateinit var  adapter : MoviesAdapter
+    private lateinit var  adapter : MoviesCardAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -31,8 +33,8 @@ class MoviesFragment : Fragment() {
         showLoader()
 
         moviesViewModel.getMovies().observe(this, Observer {
-            adapter = MoviesAdapter(it.toMutableList())
-            moviesRecyclerView.layoutManager = LinearLayoutManager(context)
+            adapter = MoviesCardAdapter(it.toMutableList())
+            moviesRecyclerView.layoutManager = GridLayoutManager(context,2,RecyclerView.VERTICAL,false)
             moviesRecyclerView.adapter = adapter
             hideLoader()
         })
