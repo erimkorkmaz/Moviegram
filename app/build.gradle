@@ -62,6 +62,10 @@ dependencies {
     kapt 'android.arch.persistence.room:compiler:1.1.1'
 
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+    implementation 'com.github.Shashank02051997:FancyToast-Android:0.1.6'
+
+    implementation 'com.tapadoo.android:alerter:4.0.2'
 }
 
 

@@ -15,7 +15,7 @@ interface MovieDao   {
     @Delete
     fun delete(vararg movie: Movie)
 
-    @Query("SELECT * FROM movies")
+    @Query("SELECT * FROM movies ORDER BY vote DESC")
     fun getAllMovies() : LiveData<List<Movie>>
 
     @Query("Delete FROM movies where id = :movieId")

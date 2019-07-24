@@ -8,9 +8,14 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.movies.R
 import com.example.movies.model.Movie
 import com.example.movies.ui.MainActivity.Companion.database
+import com.shashank.sony.fancytoastlib.FancyToast
+import com.tapadoo.alerter.Alerter
 import kotlinx.android.synthetic.main.activity_movie_detail.*
 
 class MovieDetailActivity : AppCompatActivity() {
@@ -48,11 +53,13 @@ class MovieDetailActivity : AppCompatActivity() {
 
     private fun setupView() {
 
-        GlideApp.with(this)
-            .load("https://image.tmdb.org/t/p/w342/${movie.posterPath}")
-            .placeholder(R.drawable.ic_image_place_holder)
-            .error(R.drawable.ic_broken_image)
-            .fallback(R.drawable.ic_no_image)
+        Glide.with(this)
+            .load("https://image.tmdb.org/t/p/w342/${movie.posterPath}").apply(
+                RequestOptions().centerCrop().transform(RoundedCorners(32))
+                    .placeholder(R.drawable.ic_image_place_holder)
+                    .error(R.drawable.ic_broken_image)
+                    .fallback(R.drawable.ic_no_image)
+            )
             .into(movieDetailImage)
 
         movieDetailTitle.text = movie.title
@@ -81,11 +88,15 @@ class MovieDetailActivity : AppCompatActivity() {
             if (database.checkIfMovieAvailable(movie.id)) {
                 favoriteButton.setImageDrawable(getDrawable(R.drawable.ic_star_border_black_24dp))
                 database.deleteFavouriteMovie(movie.id)
-                Toast.makeText(this,"Removed from favorites ",Toast.LENGTH_SHORT).show()
+                FancyToast.makeText(this,"Removed from favorites",Toast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+                Alerter.create(this)
+                    .setBackgroundColorRes(R.color.secondaryColor)
+                    .setText("Removed from favorites")
+                    .show()
             } else {
                 favoriteButton.setImageDrawable(getDrawable(R.drawable.ic_star_black_24dp))
                 database.insertFavorites(movie)
-                Toast.makeText(this,"Added to favorites ",Toast.LENGTH_SHORT).show()
+                FancyToast.makeText(this,"Added to favorites ",FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show()
             }
         }
     }

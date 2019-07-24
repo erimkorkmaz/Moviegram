@@ -9,15 +9,23 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.movies.R
 import com.example.movies.model.Movie
+import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.list_item_favorites.view.*
 
-class MoviesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+class FavoritesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_movies,parent,false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_favorites,parent,false))
     }
 
     override fun getItemCount() = movies.size
+
+    fun updateMovies(movies: List<Movie>) {
+        this.movies.clear()
+        this.movies.addAll(movies)
+        notifyDataSetChanged()
+    }
+
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.bind(movies[position])
@@ -34,16 +42,20 @@ class MoviesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Adapt
 
         fun bind(movie: Movie) {
             this.movie = movie
-            
+
             val url = if(movie.posterPath != null) "https://image.tmdb.org/t/p/w342/${movie.posterPath}" else null
             Glide.with(itemView.context)
                 .load(url).apply(
-                    RequestOptions().centerCrop().transform(RoundedCorners(24))
-                    .placeholder(R.drawable.ic_image_place_holder)
-                    .error(R.drawable.ic_broken_image)
-                    .fallback(R.drawable.ic_no_image)
+                    RequestOptions().centerCrop().transform(RoundedCorners(16))
+                        .placeholder(R.drawable.ic_image_place_holder)
+                        .error(R.drawable.ic_broken_image)
+                        .fallback(R.drawable.ic_no_image)
                 )
                 .into(itemView.moviesImage)
+            itemView.movieTitle.text =movie.title
+            itemView.movieVote.text = movie.vote.toString()
+            itemView.movieReleaseDate.text = String.format("Release Date : ${movie.releaseDate}")
+            itemView.movieIsAdult.text = if(movie.isAdult) String.format("+18") else String.format("General Viewers")
 
         }
 
