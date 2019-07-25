@@ -25,14 +25,11 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showLoader()
-
+  
         database.getAllFavorites().observe(this, Observer {
             adapter = FavoritesAdapter(it.toMutableList())
             favoritesRecyclerView.layoutManager = LinearLayoutManager(context)
             favoritesRecyclerView.adapter = adapter
-            hideLoader()
-
         })
 
         val heightInPixels =resources.getDimensionPixelSize(R.dimen.divider_height)
@@ -40,16 +37,6 @@ class FavoritesFragment : Fragment() {
 
     }
 
-    private fun showLoader() {
-        favoritesProgressBar.visibility = View.VISIBLE
-        favoritesRecyclerView.visibility = View.GONE
-    }
-
-    private fun hideLoader() {
-        favoritesProgressBar.visibility = View.GONE
-        favoritesRecyclerView.visibility = View.VISIBLE
-
-    }
 
 
 }

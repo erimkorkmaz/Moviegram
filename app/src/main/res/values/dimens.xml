@@ -7,7 +7,7 @@
     <dimen name="movie_name_text_size">14sp</dimen>
     <dimen name="movie_detail_image_size">200dp</dimen>
     <dimen name="detail_title_text_size">16sp</dimen>
-    <dimen name="favorite_button_size">48dp</dimen>
+    <dimen name="favorite_button_size">72dp</dimen>
     <dimen name="overview_text_size">14sp</dimen>
     <dimen name="grid_layout_margin">4dp</dimen>
     <dimen name="divider_height">0.8dp</dimen>

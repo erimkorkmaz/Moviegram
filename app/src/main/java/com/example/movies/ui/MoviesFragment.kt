@@ -46,12 +46,15 @@ class MoviesFragment : Fragment() {
     }
 
     private fun showLoader() {
-        progressBar.visibility = View.VISIBLE
+        movieLoading.visibility = View.VISIBLE
+        movieLoading.setAnimation("loading.json")
+        movieLoading.playAnimation()
+        movieLoading.loop(true)
         moviesRecyclerView.visibility = View.GONE
     }
 
     private fun hideLoader() {
-        progressBar.visibility = View.GONE
+        movieLoading.visibility = View.GONE
         moviesRecyclerView.visibility = View.VISIBLE
 
     }

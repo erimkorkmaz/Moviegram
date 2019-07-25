@@ -62,7 +62,7 @@
             app:layout_constraintStart_toEndOf="@+id/movieDetailImage"
             app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
-            android:id="@+id/movieReleaseDate"
+            android:id="@+id/moviePopularity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -72,6 +72,20 @@
             android:layout_marginLeft="@dimen/padding_standard"
             android:layout_marginStart="@dimen/padding_standard"
             app:layout_constraintTop_toBottomOf="@+id/movieVote"
+            app:layout_constraintStart_toEndOf="@+id/movieDetailImage"
+            app:layout_constraintEnd_toEndOf="parent"
+    />
+    <TextView
+            android:id="@+id/movieReleaseDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/primaryTextColor"
+            android:layout_marginTop="@dimen/padding_standard"
+            android:layout_marginBottom="@dimen/padding_standard"
+            android:layout_marginLeft="@dimen/padding_standard"
+            android:layout_marginStart="@dimen/padding_standard"
+            app:layout_constraintTop_toBottomOf="@+id/moviePopularity"
             app:layout_constraintStart_toEndOf="@id/movieDetailImage"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
@@ -107,23 +121,24 @@
             app:layout_constraintStart_toStartOf="parent"
             />
 
-    <ImageButton
+    <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/favoriteButton"
-            android:layout_width="@dimen/favorite_button_size"
-            android:layout_height="@dimen/favorite_button_size"
-            android:layout_marginLeft="@dimen/padding_standard"
-            android:layout_marginTop="@dimen/padding_standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:contentDescription="@string/content_description_favorite_button"
             android:scaleType="fitXY"
             android:tint="@color/secondaryColor"
-            android:layout_marginRight="@dimen/padding_standard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/detailToolbar"
-            app:srcCompat="@drawable/ic_star_border_black_24dp" />
-    <ProgressBar
-            android:id="@+id/detailProgressBar"
-            style="?android:attr/progressBarStyle"
+            app:lottie_autoPlay="false"
+            app:lottie_fileName="favorite.json"
+            app:lottie_loop="false"/>
+
+
+
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/detailLoading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
@@ -132,5 +147,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:visibility="visible"
-    />
+            app:lottie_fileName="loading.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

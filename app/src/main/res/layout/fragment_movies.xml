@@ -18,9 +18,8 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:visibility="visible"/>
 
-    <ProgressBar
-            android:id="@+id/progressBar"
-            style="?android:attr/progressBarStyle"
+    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/movieLoading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
@@ -29,5 +28,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:visibility="visible"
-    />
+            app:lottie_fileName="loading.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

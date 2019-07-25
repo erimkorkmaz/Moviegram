@@ -9,7 +9,6 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.movies.R
 import com.example.movies.model.Movie
-import kotlinx.android.synthetic.main.activity_movie_detail.*
 import kotlinx.android.synthetic.main.list_item_favorites.view.*
 
 class FavoritesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Adapter<FavoritesAdapter.ViewHolder>() {
@@ -54,6 +53,7 @@ class FavoritesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Ad
                 .into(itemView.moviesImage)
             itemView.movieTitle.text =movie.title
             itemView.movieVote.text = movie.vote.toString()
+            itemView.moviePopularity.text = String.format("Popularity : ${movie.popularity}")
             itemView.movieReleaseDate.text = String.format("Release Date : ${movie.releaseDate}")
             itemView.movieIsAdult.text = if(movie.isAdult) String.format("+18") else String.format("General Viewers")
 
