@@ -16,6 +16,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.movies.R
 import com.example.movies.model.Movie
 import com.example.movies.ui.MainActivity.Companion.database
+import com.muddzdev.styleabletoast.StyleableToast
 import com.shashank.sony.fancytoastlib.FancyToast
 import com.tapadoo.alerter.Alerter
 import kotlinx.android.synthetic.main.activity_movie_detail.*
@@ -79,30 +80,42 @@ class MovieDetailActivity : AppCompatActivity() {
     }
 
     private fun setupFavoriteButton() {
-
         favoriteButton.scale = 1.5f
-        if (database.checkIfMovieAvailable(movie.id))  favoriteButton.progress = 1f else favoriteButton.progress = 0f
         setupFavoriteButtonClickListener(movie)
+        if (database.checkIfMovieAvailable(movie.id))  favoriteButton.progress = 1f else favoriteButton.progress = 0f
 
 
     }
-
-
-
     private fun setupFavoriteButtonClickListener(movie: Movie) {
         favoriteButton.setOnClickListener {
             if (database.checkIfMovieAvailable(movie.id)) {
                 playReverseFavoriteAnimation(favoriteButton)
                 database.deleteFavouriteMovie(movie.id)
-                FancyToast.makeText(this,"Removed from favorites",Toast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+
+ //               FancyToast.makeText(this,"Removed from favorites",Toast.LENGTH_SHORT,FancyToast.ERROR,false).show()
+ //               StyleableToast.makeText(this, "Removed from favorites", Toast.LENGTH_LONG, R.style.myToast).show()
+                  StyleableToast
+                      .Builder(this)
+                      .text("Removed from favorites")
+                      .textColor(getResources().getColor(R.color.primaryTextColor))
+                      .backgroundColor(getResources().getColor(R.color.magenta))
+                      .show()
 //                Alerter.create(this)
 //                    .setBackgroundColorRes(R.color.secondaryColor)
 //                    .setText("Removed from favorites")
+//                    .setEnterAnimation(R.anim.abc_grow_fade_in_from_bottom)
+//                    .setExitAnimation(R.anim.abc_shrink_fade_out_from_bottom)
 //                    .show()
             } else {
                 favoriteButton.playAnimation()
                 database.insertFavorites(movie)
-                FancyToast.makeText(this,"Added to favorites ",FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show()
+   //             FancyToast.makeText(this,"Added to favorites ",FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show()
+                StyleableToast
+                    .Builder(this)
+                    .text("Added to favorites")
+                    .textColor(getResources().getColor(R.color.primaryTextColor))
+                    .backgroundColor(getResources().getColor(R.color.secondaryColor))
+                    .show()
             }
         }
     }
