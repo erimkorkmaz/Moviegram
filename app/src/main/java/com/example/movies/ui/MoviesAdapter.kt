@@ -11,7 +11,7 @@ import com.example.movies.R
 import com.example.movies.model.Movie
 import kotlinx.android.synthetic.main.list_item_favorites.view.*
 
-class MoviesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
+class MoviesAdapter(val movies: MutableList<Movie>) : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item_movies,parent,false))

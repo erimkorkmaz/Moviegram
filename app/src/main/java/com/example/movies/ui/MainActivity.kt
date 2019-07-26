@@ -57,7 +57,10 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.main_container, fragment).commit()
     }
 
-    private fun setupNetworkBroadcast() {
+    private fun checkConnectivity() {
+
+
+
 
 
     }

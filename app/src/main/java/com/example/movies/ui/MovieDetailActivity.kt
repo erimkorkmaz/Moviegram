@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -17,10 +17,7 @@ import com.example.movies.R
 import com.example.movies.model.Movie
 import com.example.movies.ui.MainActivity.Companion.database
 import com.muddzdev.styleabletoast.StyleableToast
-import com.shashank.sony.fancytoastlib.FancyToast
-import com.tapadoo.alerter.Alerter
 import kotlinx.android.synthetic.main.activity_movie_detail.*
-import kotlinx.android.synthetic.main.fragment_movies.*
 
 class MovieDetailActivity : AppCompatActivity() {
 
@@ -56,7 +53,7 @@ class MovieDetailActivity : AppCompatActivity() {
         actionBar?.setDisplayShowHomeEnabled(true)
 
         setupView()
-        setupFavoriteButton()
+        setupFavoriteButton(movie)
     }
 
     private fun setupView() {
@@ -79,42 +76,30 @@ class MovieDetailActivity : AppCompatActivity() {
         detailLoading.visibility = View.GONE
     }
 
-    private fun setupFavoriteButton() {
+
+    private fun setupFavoriteButton(movie: Movie) {
         favoriteButton.scale = 1.5f
-        setupFavoriteButtonClickListener(movie)
         if (database.checkIfMovieAvailable(movie.id))  favoriteButton.progress = 1f else favoriteButton.progress = 0f
-
-
-    }
-    private fun setupFavoriteButtonClickListener(movie: Movie) {
         favoriteButton.setOnClickListener {
             if (database.checkIfMovieAvailable(movie.id)) {
                 playReverseFavoriteAnimation(favoriteButton)
                 database.deleteFavouriteMovie(movie.id)
 
- //               FancyToast.makeText(this,"Removed from favorites",Toast.LENGTH_SHORT,FancyToast.ERROR,false).show()
- //               StyleableToast.makeText(this, "Removed from favorites", Toast.LENGTH_LONG, R.style.myToast).show()
                   StyleableToast
                       .Builder(this)
                       .text("Removed from favorites")
-                      .textColor(getResources().getColor(R.color.primaryTextColor))
-                      .backgroundColor(getResources().getColor(R.color.magenta))
+                      .textColor(ContextCompat.getColor(this,R.color.primaryTextColor))
+                      .backgroundColor(ContextCompat.getColor(this,R.color.magenta))
                       .show()
-//                Alerter.create(this)
-//                    .setBackgroundColorRes(R.color.secondaryColor)
-//                    .setText("Removed from favorites")
-//                    .setEnterAnimation(R.anim.abc_grow_fade_in_from_bottom)
-//                    .setExitAnimation(R.anim.abc_shrink_fade_out_from_bottom)
-//                    .show()
+
             } else {
                 favoriteButton.playAnimation()
                 database.insertFavorites(movie)
-   //             FancyToast.makeText(this,"Added to favorites ",FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,false).show()
                 StyleableToast
                     .Builder(this)
                     .text("Added to favorites")
-                    .textColor(getResources().getColor(R.color.primaryTextColor))
-                    .backgroundColor(getResources().getColor(R.color.secondaryColor))
+                    .textColor(ContextCompat.getColor(this,R.color.primaryTextColor))
+                    .backgroundColor(ContextCompat.getColor(this,R.color.secondaryColor))
                     .show()
             }
         }
