@@ -17,30 +17,32 @@ import kotlinx.android.synthetic.main.fragment_movies.*
 
 class MoviesFragment : Fragment() {
 
-    private lateinit var moviesViewModel : MoviesViewModel
-    private lateinit var  adapter : MoviesAdapter
-    private lateinit var itemDecoration : RecyclerView.ItemDecoration
+    private lateinit var moviesViewModel: MoviesViewModel
+    private lateinit var adapter: MoviesAdapter
+    private lateinit var itemDecoration: RecyclerView.ItemDecoration
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        return inflater.inflate(R.layout.fragment_movies,container,false)
+        retainInstance = true
+        return inflater.inflate(R.layout.fragment_movies, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        loadData()
 
         val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_layout_margin)
-        itemDecoration = SpacingItemDecoration(2,spacingInPixels)
+        itemDecoration = SpacingItemDecoration(2, spacingInPixels)
         moviesRecyclerView.addItemDecoration(itemDecoration)
+        moviesViewModel = ViewModelProviders.of(this).get(MoviesViewModel::class.java)
+
+        loadData()
+
     }
 
-    private fun loadData() : Boolean {
-        moviesViewModel = ViewModelProviders.of(this).get(MoviesViewModel::class.java)
+    private fun loadData(): Boolean {
+
         showLoader()
-        moviesViewModel.getMovies().observe(this, Observer {
+        moviesViewModel.movieLiveData.observe(this, Observer {
             adapter = MoviesAdapter(it.toMutableList())
-            moviesRecyclerView.layoutManager = GridLayoutManager(context,2,RecyclerView.VERTICAL,false)
+            moviesRecyclerView.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
             moviesRecyclerView.adapter = adapter
             hideLoader()
         })
@@ -60,7 +62,6 @@ class MoviesFragment : Fragment() {
         moviesRecyclerView.visibility = View.VISIBLE
 
     }
-
 
 
 }

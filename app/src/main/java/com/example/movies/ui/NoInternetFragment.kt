@@ -10,7 +10,7 @@ import com.example.movies.R
 class NoInternetFragment : Fragment() {
 
     companion object {
-        fun newInstance() = NoInternetFragment
+        fun newInstance() = NoInternetFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

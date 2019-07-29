@@ -5,5 +5,5 @@
     <string name="title_favorites">Favorites</string>
     <string name="content_description_movie_poster">Movie Poster</string>
     <string name="content_description_favorite_button">Create Favorite Button</string>
-    <string name="no_connection_text">No Connection</string>
+    <string name="no_connection_text">Please Check Your Internet Connection!</string>
 </resources>

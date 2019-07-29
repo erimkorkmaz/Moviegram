@@ -7,6 +7,7 @@
         <item name="colorPrimary">@color/primaryColor</item>
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorAccent">@color/secondaryColor</item>
+        <item name="android:fontFamily">@font/manropemedium</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -22,6 +23,7 @@
         <item name="stLength">LONG</item>
         <item name="stGravity">top</item>
         <item name="stRadius">5dp</item>
+        <item name="android:fontFamily">@font/manropemedium</item>
     </style>
 
 </resources>

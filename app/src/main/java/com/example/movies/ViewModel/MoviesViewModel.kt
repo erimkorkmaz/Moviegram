@@ -2,11 +2,16 @@ package com.example.movies.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.example.movies.app.Injection
+import com.example.movies.model.Movie
 
-class MoviesViewModel(application: Application) : AndroidViewModel(application)    {
+class MoviesViewModel : ViewModel()    {
     private val repository = Injection.provideRepository()
-    private val allMovies = repository.getMovies()
+    var movieLiveData : LiveData<List<Movie>>
 
-    fun getMovies() = allMovies
+    init {
+      movieLiveData=  repository.getMovies()
+    }
 }

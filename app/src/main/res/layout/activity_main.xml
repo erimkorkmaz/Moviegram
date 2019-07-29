@@ -15,8 +15,8 @@
                 android:layout_height="wrap_content"
                 android:background="@color/primaryDarkColor"
                 style="@style/AppTheme"
+                android:fontFamily="@font/manropemedium"
                 app:titleTextColor="@color/secondaryColor"
-
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

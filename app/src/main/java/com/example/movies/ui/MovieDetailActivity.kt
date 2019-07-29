@@ -89,6 +89,7 @@ class MovieDetailActivity : AppCompatActivity() {
                       .Builder(this)
                       .text("Removed from favorites")
                       .textColor(ContextCompat.getColor(this,R.color.primaryTextColor))
+                      .font(R.font.manropemedium)
                       .backgroundColor(ContextCompat.getColor(this,R.color.magenta))
                       .show()
 
@@ -99,6 +100,7 @@ class MovieDetailActivity : AppCompatActivity() {
                     .Builder(this)
                     .text("Added to favorites")
                     .textColor(ContextCompat.getColor(this,R.color.primaryTextColor))
+                    .font(R.font.manropemedium)
                     .backgroundColor(ContextCompat.getColor(this,R.color.secondaryColor))
                     .show()
             }
