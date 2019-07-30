@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Movies</string>
+    <string name="app_name">Moviegram</string>
     <string name="content_descrtiption_movie_image">Movie Image</string>
     <string name="title_now_playing">Now Playing</string>
     <string name="title_favorites">Favorites</string>

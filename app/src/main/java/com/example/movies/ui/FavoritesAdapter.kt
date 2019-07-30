@@ -3,6 +3,7 @@ package com.example.movies.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -18,13 +19,6 @@ class FavoritesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Ad
     }
 
     override fun getItemCount() = movies.size
-
-    fun updateMovies(movies: List<Movie>) {
-        this.movies.clear()
-        this.movies.addAll(movies)
-        notifyDataSetChanged()
-    }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.bind(movies[position])
@@ -57,11 +51,20 @@ class FavoritesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Ad
             itemView.movieReleaseDate.text = String.format("Release Date : ${movie.releaseDate}")
             itemView.movieIsAdult.text = if(movie.isAdult) String.format("+18") else String.format("General Viewers")
 
+            animateView(itemView)
+
         }
 
         override fun onClick(view: View) {
             val intent = MovieDetailActivity.newIntent(view.context, movie)
             view.context.startActivity(intent)
+        }
+
+        private fun animateView(viewToAnimate : View) {
+            if(viewToAnimate.animation == null) {
+                val animation = AnimationUtils.loadAnimation(viewToAnimate.context,R.anim.scale_xy)
+                viewToAnimate.animation = animation
+            }
         }
 
     }

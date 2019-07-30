@@ -28,13 +28,15 @@ class MoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_layout_margin)
-        itemDecoration = SpacingItemDecoration(2, spacingInPixels)
-        moviesRecyclerView.addItemDecoration(itemDecoration)
+
         moviesViewModel = ViewModelProviders.of(this).get(MoviesViewModel::class.java)
 
         loadData()
 
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_layout_margin)
+        itemDecoration = SpacingItemDecoration(2, spacingInPixels)
+        moviesRecyclerView.addItemDecoration(itemDecoration)
+        
     }
 
     private fun loadData(): Boolean {
