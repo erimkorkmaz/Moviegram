@@ -29,11 +29,13 @@ class MoviesFragment : Fragment() {
 
         moviesViewModel = ViewModelProviders.of(this).get(MoviesViewModel::class.java)
         moviesRecyclerView.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
+        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_layout_margin)
+        itemDecoration = SpacingItemDecoration(2, spacingInPixels)
+        moviesRecyclerView.addItemDecoration(itemDecoration)
+
         if (::adapter.isInitialized.not()) {
             loadData()
-            val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_layout_margin)
-            itemDecoration = SpacingItemDecoration(2, spacingInPixels)
-            moviesRecyclerView.addItemDecoration(itemDecoration)
+
         } else{
             moviesRecyclerView.adapter = adapter
             hideLoader()
