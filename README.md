@@ -58,7 +58,7 @@ If I had more time to research and implement, I would like to use some libraries
 ### - What to do to make app production ready? 
 
 - Should write unit and UI tests of the project before publishing
-- Should use Proguard in order to minify, obfuscate, and optimize the code.
+- Should use [Proguard](https://developer.android.com/studio/build/shrink-code) in order to minify, obfuscate, and optimize the code.
 
 
 
