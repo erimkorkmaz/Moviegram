@@ -44,7 +44,7 @@ its lifecycle owner(Activities or Fragments).
 
 ### - What would you change if you had more time?
 
-If I had more time to research and implement, I would like to add some libraries to my project such as
+If I had more time to research and implement, I would like to use some libraries to my project such as
 - [Dagger2](https://dagger.dev/)
 
 - [Rxjava](https://github.com/ReactiveX/RxJava)
