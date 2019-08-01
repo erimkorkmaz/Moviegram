@@ -45,11 +45,15 @@ its lifecycle owner(Activities or Fragments).
 ### - What would you change if you had more time?
 
 If I had more time to research and implement, I would like to add some libraries to my project such as
-- Dagger2
-- RxJava
-- Korotine
-- Data Binding
-- Paging Library
+- [Dagger2](https://dagger.dev/)
+
+- [Rxjava](https://github.com/ReactiveX/RxJava)
+
+- Coroutine
+
+- [Data Binding](https://developer.android.com/topic/libraries/data-binding/)
+
+- [Paging Library](https://developer.android.com/topic/libraries/architecture/paging/)
 
 ### - What to do to make app production ready? 
 
