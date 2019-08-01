@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.movies.R
 import com.example.movies.ViewModel.MoviesViewModel
-import com.example.movies.model.Movie
 import kotlinx.android.synthetic.main.fragment_movies.*
 
 class MoviesFragment : Fragment() {
@@ -28,23 +27,25 @@ class MoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-
         moviesViewModel = ViewModelProviders.of(this).get(MoviesViewModel::class.java)
-
-        loadData()
-
-        val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_layout_margin)
-        itemDecoration = SpacingItemDecoration(2, spacingInPixels)
-        moviesRecyclerView.addItemDecoration(itemDecoration)
-        
+        moviesRecyclerView.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
+        if (::adapter.isInitialized.not()) {
+            loadData()
+            val spacingInPixels = resources.getDimensionPixelSize(R.dimen.grid_layout_margin)
+            itemDecoration = SpacingItemDecoration(2, spacingInPixels)
+            moviesRecyclerView.addItemDecoration(itemDecoration)
+        } else{
+            moviesRecyclerView.adapter = adapter
+            hideLoader()
+        }
     }
 
     private fun loadData(): Boolean {
 
         showLoader()
+
         moviesViewModel.movieLiveData.observe(this, Observer {
             adapter = MoviesAdapter(it.toMutableList())
-            moviesRecyclerView.layoutManager = GridLayoutManager(context, 2, RecyclerView.VERTICAL, false)
             moviesRecyclerView.adapter = adapter
             hideLoader()
         })

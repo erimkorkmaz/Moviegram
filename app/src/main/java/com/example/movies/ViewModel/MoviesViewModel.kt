@@ -1,7 +1,6 @@
 package com.example.movies.ViewModel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.movies.app.Injection

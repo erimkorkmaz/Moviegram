@@ -4,38 +4,32 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.movies.R
-import android.os.Handler
+import android.view.Window
+import android.view.WindowManager
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import com.example.movies.ViewModel.SplashScreenViewModel
+
 
 class SplashActivity : AppCompatActivity() {
-    private var mDelayHandler: Handler? = null
-    private val SPLASH_DELAY: Long = 5000
 
-    internal val mRunnable: Runnable = Runnable {
-        if (!isFinishing) {
+    private lateinit var splashScreenViewModel: SplashScreenViewModel
 
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.requestFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_splash)
 
-        mDelayHandler = Handler()
 
 
-        mDelayHandler!!.postDelayed(mRunnable, SPLASH_DELAY)
+        splashScreenViewModel = ViewModelProviders.of(this).get(SplashScreenViewModel::class.java)
 
-    }
-
-    public override fun onDestroy() {
-
-        if (mDelayHandler != null) {
-            mDelayHandler!!.removeCallbacks(mRunnable)
-        }
-
-        super.onDestroy()
+        splashScreenViewModel.isFinished.observe(this, Observer {
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+            finish()
+        })
     }
 }

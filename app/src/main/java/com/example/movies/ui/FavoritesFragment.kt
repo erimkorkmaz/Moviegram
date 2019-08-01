@@ -7,14 +7,10 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.movies.R
-import com.example.movies.ViewModel.MoviesViewModel
 import com.example.movies.ui.MainActivity.Companion.database
 import kotlinx.android.synthetic.main.fragment_favorites.*
-import kotlinx.android.synthetic.main.fragment_movies.*
 
 class FavoritesFragment : Fragment() {
 
