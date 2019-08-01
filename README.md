@@ -57,9 +57,8 @@ If I had more time to research and implement, I would like to add some libraries
 
 ### - What to do to make app production ready? 
 
-unit ui test
-Proguard
-Appbundle
+- Should write unit ann UI tests of the project before publishing
+- Should use Proguard in order to minify, obfuscate, and optimize the code.
 
 
 
