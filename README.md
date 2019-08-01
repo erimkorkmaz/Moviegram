@@ -44,6 +44,17 @@ its lifecycle owner(Activities or Fragments).
 
 ### - What would you change if you had more time?
 
+Dagger2
+RxJava
+Korotine
+Data Binding
+Paging Library
+
+### - What to do to make app production ready? 
+
+unit ui test
+Proguard
+Appbundle
 
 
 
