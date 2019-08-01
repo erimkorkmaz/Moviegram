@@ -28,6 +28,7 @@ such as Retrofit, Room, MVVM architecture.
 Moviegram written by Kotlin Language and uses MVVM architecture.
 
 ## Submission
+
 ### - Explain the project in general and how to run it.
 
 Moviegram uses [TheMovieDB Api](https://www.themoviedb.org/documentation/api). It shows you the now playing movies in three different screens.
@@ -41,8 +42,9 @@ Moviegram uses the Android MVVM architecture. In order to support both orientati
 or weird behaviors, the lifecycle awareness is very needed. The ViewModel component takes care of that responsibility via 
 its lifecycle owner(Activities or Fragments).
 
-### - What to do to make the app production ready?
- I would like to write UI test of the project if I had enough time to research and implement it. 
+### - What would you change if you had more time?
+
+
 
 
 
