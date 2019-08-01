@@ -44,11 +44,12 @@ its lifecycle owner(Activities or Fragments).
 
 ### - What would you change if you had more time?
 
-Dagger2
-RxJava
-Korotine
-Data Binding
-Paging Library
+If I had more time to research and implement, I would like to add some libraries to my project such as
+- Dagger2
+- RxJava
+- Korotine
+- Data Binding
+- Paging Library
 
 ### - What to do to make app production ready? 
 
