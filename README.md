@@ -2,6 +2,8 @@
 This is my internship project to improve my programmming skills and learn much detail about some Android concepts 
 such as Retrofit, Room, MVVM architecture.
 
+<img src="Screenshots/Screenshot_1564637632.png" width="200" height="400" /> <img src="Screenshots/Screenshot_1564636929.png" width="200" height="400" /> <img src="Screenshots/Screenshot_1564636933.png" width="200" height="400" /> <img src="Screenshots/Screenshot_1564636951.png" width="200" height="400" />
+
 # Libraries
 - [Android Architecture Components](https://developer.android.com/topic/libraries/data-binding/)
 
