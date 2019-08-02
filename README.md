@@ -1,5 +1,5 @@
 # Moviegram
-This is my internship project to improve my programmming skills and learn much detail about some Android concepts 
+This is my internship project to enhance my programmming skills and learn a lot about some Android concepts 
 such as Retrofit, Room, MVVM architecture.
 
 <img src="Screenshots/Screenshot_1564637632.png" width="200" height="400" /> <img src="Screenshots/Screenshot_1564636929.png" width="200" height="400" /> <img src="Screenshots/Screenshot_1564636933.png" width="200" height="400" /> <img src="Screenshots/Screenshot_1564636951.png" width="200" height="400" />
@@ -38,8 +38,7 @@ and you can see them in favorites screen. Therefore, movies, you like or want to
 
 ### - Why you have selected that software architecture?
 
-Moviegram uses the Android MVVM architecture. In order to support both orientation of this project, prevent possible memory leaks
-or weird behaviors, the lifecycle awareness is very needed. The ViewModel component takes care of that responsibility via 
+Moviegram uses the Android MVVM architecture. To promote both of this project's orientations and avoid possible memory leaks or strange behaviors, the knowledge of the lifecycle is very necessary. The ViewModel component takes care of that responsibility via 
 its lifecycle owner(Activities or Fragments).
 
 ### - What would you change if you had more time?
