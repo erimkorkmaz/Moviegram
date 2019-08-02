@@ -48,7 +48,7 @@ If I had more time to research and implement, I would like to use some libraries
 
 - [Rxjava](https://github.com/ReactiveX/RxJava)
 
-- Coroutine
+- [Coroutine](https://developer.android.com/kotlin/coroutines)
 
 - [Data Binding](https://developer.android.com/topic/libraries/data-binding/)
 
