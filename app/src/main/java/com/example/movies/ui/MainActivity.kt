@@ -3,6 +3,8 @@ package com.example.movies.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import com.example.movies.R
 import com.example.movies.model.DatabaseService
@@ -48,6 +50,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
+
         database = DatabaseService(this)
 
         setSupportActionBar(movieToolbar)
@@ -85,6 +89,8 @@ class MainActivity : AppCompatActivity() {
                         )
                             .add(android.R.id.content, noInternetFragment).addToBackStack("Nointernet").commit()
                     }
+
+
                 }
         )
 

@@ -1,9 +1,15 @@
 package com.example.movies.ui
 
+
+import android.app.Activity
+import android.app.Application
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -41,9 +47,8 @@ class MoviesAdapter(val movies: MutableList<Movie>) : RecyclerView.Adapter<Movie
             Glide.with(itemView.context)
                 .load(url).apply(
                     RequestOptions().centerCrop().transform(RoundedCorners(24))
-                    .placeholder(R.drawable.ic_image_place_holder)
-                    .error(R.drawable.ic_broken_image)
-                    .fallback(R.drawable.ic_no_image)
+                        .placeholder(AppCompatResources.getDrawable(itemView.context,R.drawable.ic_image_place_holder))
+
                 )
                 .into(itemView.moviesImage)
 

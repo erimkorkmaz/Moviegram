@@ -6,4 +6,5 @@
         android:layout_height="wrap_content"
         android:contentDescription="@string/content_descrtiption_movie_image"
         android:layout_gravity="center"
- xmlns:android="http://schemas.android.com/apk/res/android"/>
+ xmlns:android="http://schemas.android.com/apk/res/android"
+/>
