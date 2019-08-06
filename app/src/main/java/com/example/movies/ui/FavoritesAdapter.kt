@@ -42,7 +42,7 @@ class FavoritesAdapter(private val movies: MutableList<Movie>) : RecyclerView.Ad
                     RequestOptions().centerCrop().transform(RoundedCorners(16))
                         .placeholder(R.drawable.ic_image_place_holder)
                         .error(R.drawable.ic_broken_image)
-                        .fallback(R.drawable.ic_no_image)
+       //                 .fallback(R.drawable.ic_no_image)
                 )
                 .into(itemView.moviesImage)
             itemView.movieTitle.text =movie.title

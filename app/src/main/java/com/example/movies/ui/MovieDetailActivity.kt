@@ -63,7 +63,7 @@ class MovieDetailActivity : AppCompatActivity() {
                 RequestOptions().centerCrop().transform(RoundedCorners(32))
                     .placeholder(R.drawable.ic_image_place_holder)
                     .error(R.drawable.ic_broken_image)
-                    .fallback(R.drawable.ic_no_image)
+  //                  .fallback(R.drawable.ic_no_image)
             )
             .into(movieDetailImage)
 
