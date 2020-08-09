@@ -1,8 +1,6 @@
 package com.example.movies.app
 
 import com.example.movies.BuildConfig
-import com.example.movies.model.DatabaseService
-import com.example.movies.model.QueriesInterface
 import com.example.movies.repository.RemoteRepository
 import com.example.movies.repository.Repository
 import com.example.movies.repository.TMDbApi

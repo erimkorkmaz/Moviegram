@@ -29,22 +29,23 @@ class MainActivity : AppCompatActivity() {
 
     var isConnected: Boolean = true
 
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        val fragment = when (item.itemId) {
-            R.id.navigation_movies -> {
-                title = "Now Playing"
-                moviesFragment
-            }
-            R.id.navigation_Favorites -> {
-                title = "Favorites"
-                favoritesFragment
-            }
+    private val onNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            val fragment = when (item.itemId) {
+                R.id.navigation_movies -> {
+                    title = "Now Playing"
+                    moviesFragment
+                }
+                R.id.navigation_Favorites -> {
+                    title = "Favorites"
+                    favoritesFragment
+                }
 
-            else -> moviesFragment
+                else -> moviesFragment
+            }
+            switchToFragment(fragment)
+            true
         }
-        switchToFragment(fragment)
-        true
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,7 +70,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkConnectivity() {
-
         compositeDisposable.add(
             ReactiveNetwork
                 .observeInternetConnectivity()
@@ -87,10 +87,9 @@ class MainActivity : AppCompatActivity() {
                             android.R.anim.fade_in,
                             android.R.anim.fade_out
                         )
-                            .add(android.R.id.content, noInternetFragment).addToBackStack("Nointernet").commit()
+                            .add(android.R.id.content, noInternetFragment)
+                            .addToBackStack("Nointernet").commit()
                     }
-
-
                 }
         )
 

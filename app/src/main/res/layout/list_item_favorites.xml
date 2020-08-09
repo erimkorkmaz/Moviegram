@@ -1,101 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_half"
-        android:layout_marginBottom="@dimen/padding_half"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+        android:layout_marginBottom="@dimen/padding_half">
 
     <ImageView
             android:id="@+id/moviesImage"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/list_item_movie_height"
-            android:contentDescription="@string/content_descrtiption_movie_image"
-            android:layout_marginLeft="@dimen/padding_standard"
             android:layout_marginStart="@dimen/padding_standard"
+            android:layout_marginLeft="@dimen/padding_standard"
+            android:contentDescription="@string/content_descrtiption_movie_image"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
             android:id="@+id/movieTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_standard"
+            android:layout_marginLeft="@dimen/padding_standard"
+            android:fontFamily="@font/manropemedium"
+            android:textColor="@color/primaryTextColor"
             android:textSize="@dimen/movie_name_text_size"
             android:textStyle="bold"
-            android:textColor="@color/primaryTextColor"
-            android:layout_marginLeft="@dimen/padding_standard"
-            android:layout_marginStart="@dimen/padding_standard"
-            android:fontFamily="@font/manropemedium"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/moviesImage"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Film Name"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            tools:text="Film Name" />
+
     <TextView
             android:id="@+id/movieVote"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/primaryTextColor"
+            android:layout_marginStart="@dimen/padding_standard"
+            android:layout_marginLeft="@dimen/padding_standard"
             android:layout_marginTop="@dimen/padding_standard"
             android:layout_marginBottom="@dimen/padding_standard"
-            android:layout_marginLeft="@dimen/padding_standard"
-            android:layout_marginStart="@dimen/padding_standard"
             android:fontFamily="@font/manropemedium"
-            app:layout_constraintTop_toBottomOf="@+id/movieTitle"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/moviesImage"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/movieTitle" />
+
     <TextView
             android:id="@+id/moviePopularity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/primaryTextColor"
+            android:layout_marginStart="@dimen/padding_standard"
+            android:layout_marginLeft="@dimen/padding_standard"
             android:layout_marginTop="@dimen/padding_standard"
             android:layout_marginBottom="@dimen/padding_standard"
-            android:layout_marginLeft="@dimen/padding_standard"
-            android:layout_marginStart="@dimen/padding_standard"
             android:fontFamily="@font/manropemedium"
-            app:layout_constraintTop_toBottomOf="@+id/movieVote"
-            app:layout_constraintStart_toEndOf="@+id/moviesImage"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-    />
+            app:layout_constraintStart_toEndOf="@+id/moviesImage"
+            app:layout_constraintTop_toBottomOf="@+id/movieVote" />
+
     <TextView
             android:id="@+id/movieReleaseDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/primaryTextColor"
-            android:layout_marginTop="@dimen/padding_standard"
-            android:layout_marginBottom="@dimen/padding_standard"
-            android:layout_marginLeft="@dimen/padding_standard"
             android:layout_marginStart="@dimen/padding_standard"
-            android:fontFamily="@font/manropemedium"
-            app:layout_constraintTop_toBottomOf="@+id/moviePopularity"
-            app:layout_constraintStart_toEndOf="@id/moviesImage"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginLeft="@dimen/padding_standard"
+            android:layout_marginTop="@dimen/padding_standard"
             android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"/>
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="@dimen/padding_standard"
+            android:fontFamily="@font/manropemedium"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/moviesImage"
+            app:layout_constraintTop_toBottomOf="@+id/moviePopularity" />
+
     <TextView
             android:id="@+id/movieIsAdult"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/primaryTextColor"
+            android:layout_marginStart="@dimen/padding_standard"
+            android:layout_marginLeft="@dimen/padding_standard"
             android:layout_marginTop="@dimen/padding_standard"
             android:layout_marginBottom="@dimen/padding_standard"
-            android:layout_marginLeft="@dimen/padding_standard"
-            android:layout_marginStart="@dimen/padding_standard"
             android:fontFamily="@font/manropemedium"
-            app:layout_constraintTop_toBottomOf="@+id/movieReleaseDate"
-            app:layout_constraintStart_toEndOf="@id/moviesImage"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-    />
+            app:layout_constraintStart_toEndOf="@id/moviesImage"
+            app:layout_constraintTop_toBottomOf="@+id/movieReleaseDate" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

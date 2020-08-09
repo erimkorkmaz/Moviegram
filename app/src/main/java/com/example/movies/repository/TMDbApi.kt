@@ -1,6 +1,5 @@
 package com.example.movies.repository
 
-import com.example.movies.model.Movie
 import com.example.movies.model.MovieResponse
 import retrofit2.Call
 import retrofit2.http.GET
